@@ -4,6 +4,7 @@
 비록 부족한 포트폴리오이지만 즐기며 행복하게 작업했습니다. 부디 즐겨주시길 바라며 즐겁게 감상해주세요.
 
 # 포트폴리오 프리뷰
+![image](https://github.com/spearboy/spearboy-portfolio/assets/95023009/31102c89-7ead-4bc3-877f-c5d200bfe1f1)
 
 # 포트폴리오 작업 진행
 
