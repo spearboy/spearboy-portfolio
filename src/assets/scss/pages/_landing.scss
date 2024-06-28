@@ -1,21 +1,19 @@
 main {
     position: relative;
     overflow: hidden;
-    -ms-overflow-style: none; /* 인터넷 익스플로러 */
-    scrollbar-width: none; /* 파이어폭스 */
-    &::-webkit-scrollbar {
-        display: none;
-    }
 }
+
 .back_wrap {
     position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: 1;
+    overflow: hidden;
     .back_action {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
         display: block;
@@ -72,6 +70,7 @@ main {
     height: 30px;
     text-align: center;
 }
+
 .pickstom_wrapper {
     position: fixed;
     top: 0px;
@@ -79,50 +78,65 @@ main {
     height: 100vh;
     z-index: 100;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-    .page {
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        backdrop-filter: blur(8px);
-        background-color: #000000b3;
-        color: #f4f4f4;
+    opacity: 0;
+    width: 100vw;
+    backdrop-filter: blur(8px);
+    background-color: #000000b3;
+
+    .horizontal {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        &.first_page {
-            backdrop-filter: blur(0px);
-            background-color: transparent;
-        }
-        img {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .port_num {
-            font-size: 10rem;
-            margin-left: 130px;
-        }
-        .port_title {
-            font-size: 5rem;
-            margin-left: 130px;
-            margin-top: auto;
-            margin-bottom: 130px;
-            &.sec_title {
-                margin-bottom: auto;
+        flex-direction: row;
+        width: calc(100vw * 7); /* 7 페이지 */
+        height: 100%;
+
+        .page {
+            position: relative;
+            height: 100vh;
+            color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            border-left: 1px solid #7B7B7B;
+            &.fir_page,
+            &.sec_page {
+                width: 100vw;
+                border-left: 0px solid #7B7B7B;
             }
-        }
-        .port_desc {
-            font-size: 1rem;
-            margin-left: 130px;
-            margin-bottom: auto;
+            img {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &.fir_page {
+                .title {
+                    position: absolute;
+                    top: 50%;
+                    left: 35px;
+                    transform: translateY(-50%);
+                    font-size: 4rem;
+                }
+                .port_desc {
+                    position: absolute;
+                    top: 50%;
+                    left: 35px;
+                    transform: translateY(calc(-50% + 97px));
+                    font-size: 1rem;
+                    line-height: 30px;
+                }
+            }
+            &.thr_page {
+                .title {
+                    font-size: 4rem;
+                }
+            }
         }
     }
 }

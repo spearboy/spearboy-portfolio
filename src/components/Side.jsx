@@ -1,4 +1,3 @@
-// src/components/Side.js
 import React, { useContext, useEffect, useRef } from 'react';
 import img1 from "../assets/img/img1.jpg";
 import img2 from "../assets/img/img2.jpg";
@@ -8,7 +7,7 @@ import img5 from "../assets/img/img5.jpg";
 import img6 from "../assets/img/img6.jpg";
 import img7 from "../assets/img/img7.jpg";
 import img8 from "../assets/img/img8.jpg";
-import DelayedLink from './DelayedLink ';
+import DelayedLink from './DelayedLink';
 import { AnimationContext } from '../context/AnimationContext';
 import gsap from 'gsap';
 
