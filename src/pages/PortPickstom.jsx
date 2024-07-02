@@ -3,16 +3,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Back from '../components/Back';
 import MainText from '../components/MainText';
-import img4 from "../assets/img/img4.jpg";
+import img8 from "../assets/img/img8.jpg";
 import pickstom_1 from "../assets/img/pickstom_code1.png";
 import { Link } from 'react-router-dom';
-import Ukiyo from 'ukiyojs';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PortPickstom = () => {
   const horizontalRef = useRef(null);
-  const imageContainerRef = useRef(null);
 
   useEffect(() => {
     const horizontal = horizontalRef.current;
@@ -43,12 +41,17 @@ const PortPickstom = () => {
       },
     });
 
-    // ukiyo-js 적용
-    const ukiyoInstance = new Ukiyo(imageContainerRef.current.querySelector('.ukiyo'));
+    const parallax = document.querySelector('.top_img');
+    const parallaxEffect = () => {
+      const scrollPosition = window.scrollY;
+      parallax.style.backgroundPosition = `${scrollPosition * 0.2}px`;
+    };
+
+    window.addEventListener('scroll', parallaxEffect);
 
     return () => {
       scrollTween.kill();
-      ukiyoInstance.destroy(); // Clean up ukiyo instance on component unmount
+      window.removeEventListener('scroll', parallaxEffect);
     };
   }, []);
 
@@ -67,8 +70,13 @@ const PortPickstom = () => {
                 저의 첫번째 팀프로젝트이며 디자인에는 GINA 님이 참여하게 되었습니다.
               </p>
             </div>
-            <div className='top_img' ref={imageContainerRef}>
-              <div className='ukiyo' style={{ backgroundImage: `url(${img4})`, height: '100%', width: '100%', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+            <div className='top_img' style={{ 
+                backgroundImage: `url(${img8})`,
+                backgroundSize: 'contain',
+                backgroundAttachment: 'fixed',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center'
+              }}>
             </div>
             <div className='page_title_wrapper'>
               <p className='title'>#1</p>

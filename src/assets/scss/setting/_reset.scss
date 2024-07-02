@@ -69,4 +69,5 @@
     src: url("../../fonts/Pretendard/woff2/Pretendard-Black.woff2") format("woff2"),
         url("../../fonts/Pretendard/woff/Pretendard-Black.woff") format("woff");
 }
-* { margin: 0px; padding: 0px; font-family: "Pretendard";}
+@import url('//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+* { margin: 0px; padding: 0px; font-family: "Spoqa Han Sans";}
