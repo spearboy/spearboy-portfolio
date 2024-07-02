@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Back from '../components/Back';
 import MainText from '../components/MainText';
-import img1 from "../assets/img/img1.jpg";
+import img4 from "../assets/img/img4.jpg";
 import pickstom_1 from "../assets/img/pickstom_code1.png";
 import { Link } from 'react-router-dom';
 import Ukiyo from 'ukiyojs';
@@ -68,7 +68,7 @@ const PortPickstom = () => {
               </p>
             </div>
             <div className='top_img' ref={imageContainerRef}>
-              <div className='ukiyo' style={{ backgroundImage: `url(${img1})`, height: '100%', width: '100%', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <div className='ukiyo' style={{ backgroundImage: `url(${img4})`, height: '100%', width: '100%', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
             </div>
             <div className='page_title_wrapper'>
               <p className='title'>#1</p>
