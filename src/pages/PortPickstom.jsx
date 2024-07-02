@@ -6,11 +6,13 @@ import MainText from '../components/MainText';
 import img1 from "../assets/img/img1.jpg";
 import pickstom_1 from "../assets/img/pickstom_code1.png";
 import { Link } from 'react-router-dom';
+import Ukiyo from 'ukiyojs';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PortPickstom = () => {
   const horizontalRef = useRef(null);
+  const imageContainerRef = useRef(null);
 
   useEffect(() => {
     const horizontal = horizontalRef.current;
@@ -41,8 +43,12 @@ const PortPickstom = () => {
       },
     });
 
+    // ukiyo-js 적용
+    const ukiyoInstance = new Ukiyo(imageContainerRef.current.querySelector('.ukiyo'));
+
     return () => {
       scrollTween.kill();
+      ukiyoInstance.destroy(); // Clean up ukiyo instance on component unmount
     };
   }, []);
 
@@ -61,7 +67,9 @@ const PortPickstom = () => {
                 저의 첫번째 팀프로젝트이며 디자인에는 GINA 님이 참여하게 되었습니다.
               </p>
             </div>
-            <img className='top_img' src={img1} alt="img1" />
+            <div className='top_img' ref={imageContainerRef}>
+              <div className='ukiyo' style={{ backgroundImage: `url(${img1})`, height: '100%', width: '100%', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+            </div>
             <div className='page_title_wrapper'>
               <p className='title'>#1</p>
             </div>
@@ -125,9 +133,9 @@ const PortPickstom = () => {
               <img src={pickstom_1} alt="pickstom_code_1" />
             </div>
             <div className='page_next_wrapper'>
-              <p></p>
-              <p></p>
-              <p></p>
+              <p className='next_work_cate'>Next work</p>
+              <p className='next_work_title'>CARDIVE</p>
+              <Link to={'/'}>View</Link>
             </div>
           </div>
         </div>
